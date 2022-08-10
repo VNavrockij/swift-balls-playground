@@ -61,7 +61,24 @@ public class Balls: UIView {
         }
     }
     
+    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let touchLocation = touch.location(in: self)
+            if let snapBehavior = snapBehavior {
+                snapBehavior.snapPoint = touchLocation
+            }
+        }
+    }
+    
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let snapBehavior = snapBehavior {
+            animator?.removeBehavior(snapBehavior)
+        }
+        snapBehavior = nil
+    }
+    
 }
 
 let balls = Balls(colors: [#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), #colorLiteral(red: 0.8272281289, green: 0.8619112372, blue: 0.8180854321, alpha: 1), #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1), #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)])
 PlaygroundPage.current.liveView = balls
+
