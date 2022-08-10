@@ -14,13 +14,21 @@ public class Balls: UIView {
     private var animator: UIDynamicAnimator?
     // handling of displaced sites
     private var snapBehavior: UISnapBehavior?
+    // colisium handler
+    private var collisionBehavior: UICollisionBehavior
     
     public init(colors: [UIColor]) {
         self.colors = colors
+        // creating properties values
+        collisionBehavior = UICollisionBehavior(items: [])
+        // pointer for bounds of frame also as object interaction
+        collisionBehavior.setTranslatesReferenceBoundsIntoBoundary(with: UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1))
         super.init(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
         backgroundColor = UIColor.blue
         // connect animator with pointer to the class itself
         animator = UIDynamicAnimator(referenceView: self)
+        // add collision behavior in a collision to animator
+        animator?.addBehavior(collisionBehavior)
         // call a func for drawing balls
         ballsView()
     }
@@ -45,6 +53,8 @@ public class Balls: UIView {
             ball.frame = CGRect(x: origin, y: origin, width: Int(ballSize.width), height: Int(ballSize.height))
             // corner radius
             ball.layer.cornerRadius = ball.bounds.width / 2.0
+            // add ball to collision handler
+            collisionBehavior.addItem(ball)
         }
     }
     
