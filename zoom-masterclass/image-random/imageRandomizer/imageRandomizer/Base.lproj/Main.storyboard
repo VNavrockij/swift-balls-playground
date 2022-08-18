@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hVv-XH-zqC">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nssl0033" translatesAutoresizingMaskIntoConstraints="NO" id="hVv-XH-zqC">
                                 <rect key="frame" x="40" y="323" width="334" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="eyq-Qq-zmT"/>
@@ -39,6 +39,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Button">
                                     <color key="baseForegroundColor" systemColor="systemTealColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="touchRandomImgBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Isc-47-pVa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -53,6 +56,10 @@
                             <constraint firstItem="GaL-ll-ccM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wGQ-T1-bmx"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="image" destination="hVv-XH-zqC" id="XPe-WA-vWi"/>
+                        <outlet property="imageNameLbl" destination="GaL-ll-ccM" id="tkf-VX-q4N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,6 +67,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="nssl0033" width="1024" height="768"/>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
