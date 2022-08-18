@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     let words = ["Pretty", "Lovely", "Great", "Awesome", "Nice"]
     let imgNames = ["1", "2", "3", "4", "5"]
+    let colorsForBG: [UIColor] = [.blue, .purple, .systemPink, .magenta]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,8 @@ class ViewController: UIViewController {
     func updateUI() {
         imageNameLbl.text = words.randomElement()
         image.image = UIImage(named: imgNames.randomElement()!)
+        view.backgroundColor = colorsForBG.randomElement()
+        
     }
     
 }
