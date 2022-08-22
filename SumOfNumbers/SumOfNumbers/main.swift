@@ -12,14 +12,11 @@ let a = readLine()
 print("Input second value of number")
 let b = readLine()
 
+var result = summ(a, b)
 
-//let result = summ(a + b)
+print("Summ your numbers = \(result)")
 
-//print("Summ your numbers = \(result)")
-
-//func summ(_ a: String?, _ b: String?) {
-//    guard let aInt = a else { return }
-//    guard let bInt = b else { return }
-//    print(aInt)
-//
-//}
+func summ(_ a: String?, _ b: String?) -> Int {
+    let result = Int(a!)! + Int(b!)!
+    return result
+}
